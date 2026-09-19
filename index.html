@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muthu Varshith | AI Engineer</title>
+<meta name="description" content="Muthu Varshith — AI Engineer building verifiable, explainable LLM and deep learning systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0f17; --bg2:#111827; --card:#141b2a; --line:#243049;
+  --text:#e6ebf5; --muted:#93a0b8; --accent:#5eead4; --accent2:#818cf8;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(11,15,23,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--mono);font-weight:500;color:var(--accent)}
+nav ul{display:flex;gap:24px;list-style:none;font-size:.9rem;color:var(--muted)}
+nav ul a:hover{color:var(--accent)}
+@media(max-width:760px){nav ul{display:none}}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 80% 20%,rgba(129,140,248,.18),transparent 70%),
+  radial-gradient(500px 400px at 10% 80%,rgba(94,234,212,.12),transparent 70%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--accent);border:1px solid rgba(94,234,212,.35);padding:6px 14px;border-radius:999px;margin-bottom:24px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.1;font-weight:800}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:var(--mono);color:var(--muted);margin:16px 0;font-size:1.1rem;min-height:1.6em}
+.role b{color:var(--text);font-weight:500}
+.hero p.lead{max-width:600px;color:var(--muted);font-size:1.1rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{padding:12px 22px;border-radius:10px;font-weight:600;font-size:.95rem;transition:.2s}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#0b0f17}
+.btn.ghost{border:1px solid var(--line)}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* sections */
+section{padding:100px 0}
+.eyebrow{font-family:var(--mono);color:var(--accent);font-size:.85rem;letter-spacing:.1em}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:6px 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.25s}
+.card:hover{border-color:rgba(94,234,212,.4);transform:translateY(-3px)}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.about p{color:var(--muted);margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.stat{text-align:center;padding:18px 8px}
+.stat strong{display:block;font-size:1.8rem;color:var(--accent)}
+.stat span{font-size:.75rem;color:var(--muted);letter-spacing:.08em}
+.code{font-family:var(--mono);font-size:.85rem;padding:0;overflow:hidden}
+.code .bar{display:flex;gap:6px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.78rem}
+.code .bar i{width:10px;height:10px;border-radius:50%;background:#f87171}
+.code .bar i:nth-child(2){background:#fbbf24}.code .bar i:nth-child(3){background:#34d399;margin-right:8px}
+.code pre{padding:18px;overflow-x:auto;line-height:1.7}
+.k{color:#c084fc}.s{color:#86efac}.f{color:#7dd3fc}.c{color:#64748b}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{border-left:2px solid var(--line);margin-left:8px;display:grid;gap:28px}
+.item{position:relative;padding-left:28px}
+.item::before{content:"";position:absolute;left:-7px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:6px}
+.meta h3{font-size:1.15rem}
+.date{font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+.org{color:var(--accent2);font-weight:500;margin-bottom:10px}
+.item ul{padding-left:18px;color:var(--muted)}
+.item li{margin-bottom:6px}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.proj{display:flex;flex-direction:column}
+.proj .icon{font-size:1.8rem;margin-bottom:12px}
+.proj h3{font-size:1.2rem}
+.proj .sub{font-size:.85rem;color:var(--accent2);margin-bottom:12px}
+.proj p{color:var(--muted);font-size:.95rem;flex:1}
+.proj .hl{font-family:var(--mono);font-size:.8rem;color:var(--accent);margin:14px 0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.tag{font-family:var(--mono);font-size:.75rem;padding:4px 10px;border-radius:6px;background:rgba(129,140,248,.1);color:#c7d2fe}
+.proj a.link{margin-top:18px;font-size:.9rem;color:var(--accent);font-weight:600}
+
+/* skills */
+.skillgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.skillgrid h3{font-size:1rem;margin-bottom:14px}
+
+/* edu */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.two ul{list-style:none;display:grid;gap:12px;color:var(--muted)}
+.two li b{color:var(--text);font-weight:600;display:block}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+
+/* contact */
+.contact{text-align:center}
+.contact p{color:var(--muted);max-width:560px;margin:0 auto 36px}
+.clinks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:820px;margin:0 auto}
+.clinks .card span{display:block;font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:.1em;margin-bottom:6px}
+.clinks .card{word-break:break-word}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+.reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#" class="logo">&lt;MV /&gt;</a>
+  <ul>
+    <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="badge"><i></i>Open to AI Engineer roles</div>
+  <h1>Hi, I'm <span class="grad">Muthu Varshith</span></h1>
+  <div class="role">&gt; <b id="typed"></b></div>
+  <p class="lead">I build Python AI/ML systems that are tested and explainable: patch verification for AI-written code, explainable resume screening, and deepfake detection that runs on your own hardware.</p>
+  <div class="btns">
+    <a href="#projects" class="btn primary">View Projects</a>
+    <a href="#contact" class="btn ghost">Get in Touch</a>
+    <a href="resume.pdf" class="btn ghost" target="_blank">Resume ↓</a>
+  </div>
+</div></header>
+
+<main>
+<section id="about"><div class="wrap">
+  <div class="eyebrow">01 — ABOUT</div>
+  <h2>Engineering AI that shows its work</h2>
+  <div class="about">
+    <div class="reveal">
+      <p>I'm a Computer Science graduate based in Bengaluru. I build AI/ML systems in Python across machine learning, deep learning, NLP, multimodal AI, LLM applications and AI agents.</p>
+      <p>I care about whether a system can be trusted, so every project I ship comes with measured evaluation and automated tests. My three main projects have more than 260 tests between them.</p>
+      <div class="stats">
+        <div class="card stat"><strong>3</strong><span>AI SYSTEMS BUILT</span></div>
+        <div class="card stat"><strong>2</strong><span>INTERNSHIPS</span></div>
+        <div class="card stat"><strong>5</strong><span>PRO CERTIFICATIONS</span></div>
+      </div>
+    </div>
+    <div class="card code reveal">
+      <div class="bar"><i></i><i></i><i></i>engineer.py</div>
+<pre><span class="k">class</span> <span class="f">MuthuVarshith</span>:
+    location = <span class="s">"Bengaluru, India"</span>
+    focus = [<span class="s">"LLM agents"</span>, <span class="s">"NLP"</span>,
+             <span class="s">"Explainable AI"</span>, <span class="s">"Computer vision"</span>]
+    stack = [<span class="s">"PyTorch"</span>, <span class="s">"FastAPI"</span>,
+             <span class="s">"Docker"</span>, <span class="s">"pytest"</span>]
+
+    <span class="k">def</span> <span class="f">ship</span>(self, model_output):
+        <span class="c"># never trust, always verify</span>
+        <span class="k">return</span> verify(model_output)</pre>
+    </div>
+  </div>
+</div></section>
+
+<section id="experience" style="background:var(--bg2)"><div class="wrap">
+  <div class="eyebrow">02 — EXPERIENCE</div>
+  <h2>Where I've worked</h2>
+  <div class="timeline">
+    <div class="item reveal"><div class="card">
+      <div class="meta"><h3>Python Full Stack Development Intern</h3><span class="date">Feb 2026 – May 2026</span></div>
+      <div class="org">KodNest</div>
+      <ul>
+        <li>Built a Python inventory, sales and purchase management system with stock management, multi-item invoicing, returns, payments, and role-based access for admin, sales and inventory teams.</li>
+        <li>Put stock and billing logic in atomic database transactions so inventory can never go negative, and covered the business rules (overselling, returns, access control) with 59 automated tests.</li>
+      </ul>
+    </div></div>
+    <div class="item reveal"><div class="card">
+      <div class="meta"><h3>Artificial Intelligence Intern</h3><span class="date">Jun 2025 – Oct 2025</span></div>
+      <div class="org">SmartEd Solutions</div>
+      <ul>
+        <li>Trained and compared Logistic Regression and SVM classifiers in scikit-learn on the 569-sample Breast Cancer Wisconsin (Diagnostic) dataset, after EDA and feature standardization.</li>
+        <li>Reached 97.4% held-out accuracy with Logistic Regression vs 95.6% with SVM on an 80/20 split, evaluated with confusion matrices and ROC curves.</li>
+      </ul>
+    </div></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="eyebrow">03 — PROJECTS</div>
+  <h2>Featured work</h2>
+  <div class="grid">
+    <div class="card proj reveal">
+      <div class="icon">🛡️</div>
+      <h3>Cerberus</h3><div class="sub">Autonomous Software Repair &amp; Patch Verification</div>
+      <p>Checks whether a patch, written by a developer or an AI, actually fixes the reported bug before it is accepted. An 11-stage pipeline reproduces the failure, applies the patch, reruns the tests and looks for regressions inside network-isolated Docker sandboxes. It runs as a FastAPI GitHub App that posts Check Runs.</p>
+      <div class="hl">Wrong-patch approvals 65% → 36% · all 7 correct fixes admitted · 231 tests</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Apps</span><span class="tag">pytest</span></div>
+      <a class="link" href="https://github.com/MuthuVarshith" target="_blank">Source code →</a>
+    </div>
+    <div class="card proj reveal">
+      <div class="icon">🧑‍💼</div>
+      <h3>HireAI</h3><div class="sub">Explainable AI Resume Screening Platform</div>
+      <p>Scores candidates from 0 to 100 against job requirements and explains each score. The offline-first engine combines Sentence Transformers embeddings, fuzzy skill matching, experience and education, with Gemini 2.0 Flash as an optional layer for parsing and explanations. Includes a recruiter dashboard with skill-gap analysis, duplicate detection and CSV/JSON export.</p>
+      <div class="hl">Works fully offline · 33 pytest tests</div>
+      <div class="tags"><span class="tag">Flask</span><span class="tag">Sentence Transformers</span><span class="tag">Gemini</span><span class="tag">SQLAlchemy</span><span class="tag">SQLite</span></div>
+      <a class="link" href="https://github.com/MuthuVarshith" target="_blank">Source code →</a>
+    </div>
+    <div class="card proj reveal">
+      <div class="icon">🔍</div>
+      <h3>FusionTrace</h3><div class="sub">Multimodal Deepfake Detection Platform</div>
+      <p>Fine-tuned EfficientNetV2-L on 150K face images and Wav2Vec2 on ~40K audio clips to detect manipulated images and synthetic speech. Image, audio and video run locally with nothing uploaded, outputs are fused into one risk rating, and an async FastAPI backend serves Grad-CAM explanations.</p>
+      <div class="hl">Audio: 98.3% accuracy, 0.98 F1 · Image: 96% accuracy</div>
+      <div class="tags"><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">EfficientNetV2-L</span><span class="tag">Wav2Vec2</span><span class="tag">FastAPI</span></div>
+      <a class="link" href="https://github.com/MuthuVarshith" target="_blank">Source code →</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills" style="background:var(--bg2)"><div class="wrap">
+  <div class="eyebrow">04 — SKILLS</div>
+  <h2>Tech stack</h2>
+  <div class="skillgrid">
+    <div class="card reveal"><h3>🧠 AI / ML</h3><div class="tags"><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">Computer Vision</span><span class="tag">NLP</span><span class="tag">Fine-tuning</span><span class="tag">Model Evaluation</span><span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">Hugging Face</span></div></div>
+    <div class="card reveal"><h3>🤖 Generative AI</h3><div class="tags"><span class="tag">LLMs</span><span class="tag">LLM APIs</span><span class="tag">Prompt Engineering</span><span class="tag">Embeddings</span><span class="tag">Semantic Similarity</span><span class="tag">AI Agents</span></div></div>
+    <div class="card reveal"><h3>⚙️ Backend &amp; Databases</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">SQLAlchemy</span><span class="tag">Webhooks</span><span class="tag">PostgreSQL</span><span class="tag">SQLite</span></div></div>
+    <div class="card reveal"><h3>📊 Data &amp; Tools</h3><div class="tags"><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">EDA</span><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">pytest</span><span class="tag">JavaScript</span></div></div>
+  </div>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <div class="eyebrow">05 — EDUCATION & CERTIFICATIONS</div>
+  <h2>Learning path</h2>
+  <div class="two">
+    <div class="card reveal"><h3 style="margin-bottom:16px">🎓 Education</h3><ul>
+      <li><b>B.E., Computer Science & Business Systems</b>Visvesvaraya Technological University · 2022 – 2026</li>
+    </ul></div>
+    <div class="card reveal"><h3 style="margin-bottom:16px">🏅 Professional Certifications</h3><ul>
+      <li><b>OCI 2025 Certified Generative AI Professional</b>Oracle · Oct 2025</li>
+      <li><b>OCI 2025 Certified Data Science Professional</b>Oracle · Sep 2025</li>
+      <li><b>OCI 2025 Certified DevOps Professional</b>Oracle · Oct 2025</li>
+      <li><b>Fusion AI Agent Studio Certified Foundations Associate</b>Oracle · Sep 2025</li>
+      <li><b>Applied Skills: Canvas Apps with Power Apps</b><a href="https://learn.microsoft.com/en-us/users/muthuvarshith-7728/credentials" target="_blank" style="color:var(--accent)">Microsoft · Jun 2025 ↗</a></li>
+    </ul></div>
+  </div>
+  <div class="card reveal" style="margin-top:20px"><h3 style="margin-bottom:16px">📚 Courses</h3>
+    <div class="tags">
+      <span class="tag">AWS · Foundations of Prompt Engineering</span>
+      <a class="tag" href="https://www.credly.com/badges/b104a544-417c-40b4-94dd-22d1e9d49323" target="_blank">IBM · Generative AI in Action ↗</a>
+      <span class="tag">SmartEd · Artificial Intelligence</span>
+      <span class="tag">TechSaksham (Microsoft/SAP) · Applied AI</span>
+      <span class="tag">Nasscom · ML &amp; Image Processing</span>
+      <span class="tag">Infosys · Python for Data Science</span>
+      <span class="tag">Coursera · Python for Everybody</span>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact" style="background:var(--bg2)"><div class="wrap contact">
+  <div class="eyebrow">06 — CONTACT</div>
+  <h2>Let's build something</h2>
+  <p>I'm looking for AI Engineer roles and interesting problems to work on. The quickest way to reach me is by email.</p>
+  <div class="clinks">
+    <a class="card" href="mailto:muthuvarshith290@gmail.com"><span>EMAIL</span>muthuvarshith290@gmail.com</a>
+    <a class="card" href="https://github.com/MuthuVarshith" target="_blank"><span>GITHUB</span>@MuthuVarshith</a>
+    <a class="card" href="https://linkedin.com/in/muthu-varshith" target="_blank"><span>LINKEDIN</span>muthu-varshith</a>
+  </div>
+</div></section>
+</main>
+
+<footer>Designed & built by Muthu Varshith · © 2026</footer>
+
+<script>
+const roles=["AI / ML Engineer","LLM & Agents Developer","Python Developer"];
+let r=0,i=0,del=false;const el=document.getElementById("typed");
+(function tick(){const w=roles[r];el.textContent=w.slice(0,i);
+  if(!del&&i<w.length)i++;else if(del&&i>0)i--;else{del=!del;if(!del)r=(r+1)%roles.length;}
+  setTimeout(tick,del?40:(i===w.length?1600:80));})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(n=>io.observe(n));
+</script>
+</body>
+</html>
