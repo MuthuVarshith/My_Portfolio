@@ -277,8 +277,11 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 const roles=["AI / ML Engineer","LLM & Agents Developer","Python Developer"];
 let r=0,i=0,del=false;const el=document.getElementById("typed");
 (function tick(){const w=roles[r];el.textContent=w.slice(0,i);
-  if(!del&&i<w.length)i++;else if(del&&i>0)i--;else{del=!del;if(!del)r=(r+1)%roles.length;}
-  setTimeout(tick,del?40:(i===w.length?1600:80));})();
+  let d=del?40:80;
+  if(!del&&i===w.length){del=true;d=1600;}
+  else if(del&&i===0){del=false;r=(r+1)%roles.length;d=400;}
+  else i+=del?-1:1;
+  setTimeout(tick,d);})();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(n=>io.observe(n));
 </script>
