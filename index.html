@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muthu Varshith | AI Engineer</title>
-<meta name="description" content="Muthu Varshith — AI Engineer building verifiable, explainable LLM and deep learning systems.">
+<title>Muthu Varshith | Python Developer & AI/ML Engineer</title>
+<meta name="description" content="Muthu Varshith — Python Developer and AI/ML Engineer building verifiable, explainable LLM and deep learning systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -109,6 +109,19 @@ h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:6px 0 40px}
 .clinks .card{word-break:break-word}
 footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem}
 
+/* project links + demo modal */
+.plinks{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:18px}
+.proj a.link{margin-top:0;cursor:pointer}
+a.demo{color:var(--accent2)}
+a.demo:hover{color:var(--accent)}
+#vmodal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(5,8,14,.88);backdrop-filter:blur(6px);padding:20px}
+#vmodal.on{display:flex}
+#vmodal .box{width:min(960px,100%)}
+#vmodal video{width:100%;border-radius:14px;border:1px solid var(--line);background:#000}
+#vmodal .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;color:var(--muted);font-size:.9rem}
+#vmodal button{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 14px;cursor:pointer;font:inherit}
+#vmodal button:hover{border-color:var(--accent);color:var(--accent)}
+
 /* languages */
 .langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
 .lang{text-align:center}
@@ -133,7 +146,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 </div></nav>
 
 <header class="hero"><div class="wrap">
-  <div class="badge"><i></i>Open to AI Engineer roles</div>
+  <div class="badge"><i></i>Open to Python Developer &amp; AI/ML Engineer roles</div>
   <h1>Hi, I'm <span class="grad">Muthu Varshith</span></h1>
   <div class="role">&gt; <b id="typed"></b></div>
   <p class="lead">I build Python AI/ML systems that are tested and explainable: patch verification for AI-written code, explainable resume screening, and deepfake detection that runs on your own hardware.</p>
@@ -207,7 +220,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
       <p>Checks whether a patch, written by a developer or an AI, actually fixes the reported bug before it is accepted. An 11-stage pipeline reproduces the failure, applies the patch, reruns the tests and looks for regressions inside network-isolated Docker sandboxes. It runs as a FastAPI GitHub App that posts Check Runs.</p>
       <div class="hl">Wrong-patch approvals 65% → 36% · all 7 correct fixes admitted · 231 tests</div>
       <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Apps</span><span class="tag">pytest</span></div>
-      <a class="link" href="https://github.com/MuthuVarshith" target="_blank">Source code →</a>
+      <div class="plinks"><a class="link" href="https://github.com/MuthuVarshith/Cerberus" target="_blank">Source code →</a><a class="link demo" data-video="videos/cerberus-demo.mp4" href="videos/cerberus-demo.mp4">▶ Watch demo</a></div>
     </div>
     <div class="card proj reveal">
       <div class="icon">🧑‍💼</div>
@@ -215,7 +228,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
       <p>Scores candidates from 0 to 100 against job requirements and explains each score. The offline-first engine combines Sentence Transformers embeddings, fuzzy skill matching, experience and education, with Gemini 2.0 Flash as an optional layer for parsing and explanations. Includes a recruiter dashboard with skill-gap analysis, duplicate detection and CSV/JSON export.</p>
       <div class="hl">Works fully offline · 33 pytest tests</div>
       <div class="tags"><span class="tag">Flask</span><span class="tag">Sentence Transformers</span><span class="tag">Gemini</span><span class="tag">SQLAlchemy</span><span class="tag">SQLite</span></div>
-      <a class="link" href="https://github.com/MuthuVarshith" target="_blank">Source code →</a>
+      <div class="plinks"><a class="link" href="https://github.com/MuthuVarshith/Hire-AI" target="_blank">Source code →</a><a class="link demo" data-video="videos/hire-ai-demo.mp4" href="videos/hire-ai-demo.mp4">▶ Watch demo</a></div>
     </div>
     <div class="card proj reveal">
       <div class="icon">🔍</div>
@@ -223,7 +236,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
       <p>Fine-tuned EfficientNetV2-L on 150K face images and Wav2Vec2 on ~40K audio clips to detect manipulated images and synthetic speech. Image, audio and video run locally with nothing uploaded, outputs are fused into one risk rating, and an async FastAPI backend serves Grad-CAM explanations.</p>
       <div class="hl">Audio: 98.3% accuracy, 0.98 F1 · Image: 96% accuracy</div>
       <div class="tags"><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">EfficientNetV2-L</span><span class="tag">Wav2Vec2</span><span class="tag">FastAPI</span></div>
-      <a class="link" href="https://github.com/MuthuVarshith" target="_blank">Source code →</a>
+      <div class="plinks"><a class="link" href="https://github.com/MuthuVarshith/FusionTrace" target="_blank">Source code →</a><a class="link demo" data-video="videos/fusiontrace-demo.mp4" href="videos/fusiontrace-demo.mp4">▶ Watch demo</a></div>
     </div>
   </div>
 </div></section>
@@ -293,10 +306,17 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 </div></section>
 </main>
 
+<div id="vmodal" role="dialog" aria-modal="true" aria-label="Project demo video">
+  <div class="box">
+    <div class="top"><span id="vtitle">Demo</span><button type="button" id="vclose">Close ✕</button></div>
+    <video id="vplayer" controls playsinline></video>
+  </div>
+</div>
+
 <footer>Designed & built by Muthu Varshith · © 2026</footer>
 
 <script>
-const roles=["AI / ML Engineer","LLM & Agents Developer","Python Developer"];
+const roles=["Python Developer | AI/ML Engineer","LLM & Agents Developer","Deep Learning Engineer"];
 let r=0,i=0,del=false;const el=document.getElementById("typed");
 (function tick(){const w=roles[r];el.textContent=w.slice(0,i);
   let d=del?40:80;
@@ -304,6 +324,16 @@ let r=0,i=0,del=false;const el=document.getElementById("typed");
   else if(del&&i===0){del=false;r=(r+1)%roles.length;d=400;}
   else i+=del?-1:1;
   setTimeout(tick,d);})();
+const modal=document.getElementById("vmodal"),player=document.getElementById("vplayer"),vtitle=document.getElementById("vtitle");
+function closeVideo(){modal.classList.remove("on");player.pause();player.removeAttribute("src");player.load();}
+document.querySelectorAll("a.demo").forEach(a=>a.addEventListener("click",e=>{
+  e.preventDefault();
+  vtitle.textContent=a.closest(".proj").querySelector("h3").textContent+" — demo";
+  player.src=a.dataset.video;modal.classList.add("on");player.play().catch(()=>{});
+}));
+document.getElementById("vclose").addEventListener("click",closeVideo);
+modal.addEventListener("click",e=>{if(e.target===modal)closeVideo();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeVideo();});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll(".reveal").forEach(n=>io.observe(n));
 </script>
