@@ -109,6 +109,14 @@ h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:6px 0 40px}
 .clinks .card{word-break:break-word}
 footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem}
 
+/* languages */
+.langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.lang{text-align:center}
+.lang .flag{font-size:1.7rem}
+.lang h3{font-size:1.05rem;margin:8px 0 4px}
+.lang .level{font-family:var(--mono);font-size:.78rem;color:var(--accent);letter-spacing:.06em}
+.lang .note{font-size:.82rem;color:var(--muted);margin-top:4px}
+
 .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
 .reveal.show{opacity:1;transform:none}
 </style>
@@ -120,7 +128,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   <ul>
     <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li><li><a href="#skills">Skills</a></li>
-    <li><a href="#education">Education</a></li><li><a href="certificates.html">Certificates</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#education">Education</a></li><li><a href="#languages">Languages</a></li><li><a href="certificates.html">Certificates</a></li><li><a href="#contact">Contact</a></li>
   </ul>
 </div></nav>
 
@@ -262,8 +270,19 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
   </div>
 </div></section>
 
+<section id="languages"><div class="wrap">
+  <div class="eyebrow">06 — LANGUAGES</div>
+  <h2>Language proficiency</h2>
+  <div class="langs">
+    <div class="card lang reveal"><div class="flag">🇬🇧</div><h3>English</h3><div class="level">PROFESSIONAL</div><div class="note">TOEFL tested · all work and study</div></div>
+    <div class="card lang reveal"><div class="flag">🪔</div><h3>Telugu</h3><div class="level">NATIVE</div><div class="note">Mother tongue</div></div>
+    <div class="card lang reveal"><div class="flag">🏵️</div><h3>Kannada</h3><div class="level">FLUENT</div><div class="note">Daily use in Bengaluru</div></div>
+    <div class="card lang reveal"><div class="flag">🕉️</div><h3>Hindi</h3><div class="level">CONVERSATIONAL</div><div class="note">Everyday conversation</div></div>
+  </div>
+</div></section>
+
 <section id="contact" style="background:var(--bg2)"><div class="wrap contact">
-  <div class="eyebrow">06 — CONTACT</div>
+  <div class="eyebrow">07 — CONTACT</div>
   <h2>Let's build something</h2>
   <p>I'm looking for AI Engineer roles and interesting problems to work on. The quickest way to reach me is by email.</p>
   <div class="clinks">
