@@ -124,7 +124,16 @@ footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:v
 @media(max-width:520px){.rows .row{flex-direction:column;gap:6px}.rows .when{padding-top:0}}
 
 /* project bullet points */
-.proj ul.pts{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:.88rem;display:grid;gap:6px;align-content:start;flex:1}
+.proj ul.pts{list-style:none;margin:0;padding:0;color:var(--muted);font-size:.88rem;display:grid;gap:12px;align-content:start}
+.proj ul.pts li{padding-left:12px;border-left:2px solid var(--line)}
+.proj .pl{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent2);margin-bottom:2px}
+.projgrid{grid-template-columns:repeat(3,1fr)}
+@supports (grid-template-rows:subgrid){
+  .projgrid .proj{display:grid;grid-row:span 8;grid-template-rows:subgrid;row-gap:12px}
+  .projgrid .proj > *{margin:0}
+}
+.proj .ptitle h3{margin-bottom:2px}
+@media(max-width:900px){.projgrid{grid-template-columns:1fr}}
 
 /* project links + demo modal */
 .plinks{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:18px}
@@ -230,32 +239,32 @@ a.demo:hover{color:var(--accent)}
 <section id="projects"><div class="wrap">
   <div class="eyebrow">03 — PROJECTS</div>
   <h2>Featured work</h2>
-  <div class="grid">
+  <div class="grid projgrid">
     <div class="card proj reveal">
       <div class="icon">🛡️</div>
-      <h3>Cerberus</h3><div class="sub">Agentic Software Repair with a Verification Gate</div>
-      <p>An LLM agent reads a bug report, investigates the code with sandboxed tools and proposes a patch. A separate, deterministic gate decides whether it may become a pull request: the AI proposes, the gate decides.</p>
-      <ul class="pts"><li>Gate checks RED → GREEN → regression → scope in an offline Docker sandbox; a human approves before any draft PR</li><li>Code retrieval with Tree-sitter, BM25, Qdrant and RRF raised bug localization Recall@10 from 0.49 to 0.86 on 120 SWE-bench Verified instances (McNemar p &lt; 10⁻⁵)</li><li>GitHub App with issue-triggered runs, LangGraph orchestration with checkpointed resume, and AWS infrastructure written in Terraform (not deployed)</li></ul>
-      <div class="hl">10/10 valid real-model repairs admitted, 0 false admissions · wrong approvals 65% → 36% · 316 tests</div>
-      <div class="tags"><span class="tag">Python</span><span class="tag">LLM Agents</span><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Qdrant</span><span class="tag">Tree-sitter</span><span class="tag">Langfuse</span><span class="tag">Terraform</span><span class="tag">AWS</span></div>
+      <div class="ptitle"><h3>Cerberus</h3><div class="sub">Agentic Software Repair with a Verification Gate</div></div>
+      <p>An LLM agent proposes patches for reported bugs, and a deterministic gate decides whether a patch may become a pull request.</p>
+      <ul class="pts"><li><span class="pl">How it works</span>A tool-calling agent investigates the code in a Docker sandbox; the gate checks RED, GREEN, regression and scope, and a human approves before any draft PR.</li><li><span class="pl">Evaluation</span>Code retrieval with Tree-sitter, BM25, Qdrant and RRF raised bug localization Recall@10 from 0.49 to 0.86 on 120 SWE-bench Verified instances.</li><li><span class="pl">Engineering</span>FastAPI GitHub App, LangGraph with checkpointed resume, Langfuse tracing, and AWS infrastructure written in Terraform.</li></ul>
+      <div class="hl">10/10 repairs admitted · 0 false admissions · 316 tests</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">LLM Agents</span><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Qdrant</span><span class="tag">Terraform</span><span class="tag">AWS</span></div>
       <div class="plinks"><a class="link" href="https://github.com/MuthuVarshith/Cerberus/tree/upgrade/final" target="_blank">Source code →</a><a class="link demo" data-video="videos/cerberus-demo.mp4" href="videos/cerberus-demo.mp4">▶ Watch demo</a></div>
     </div>
     <div class="card proj reveal">
       <div class="icon">🧑‍💼</div>
-      <h3>HireAI</h3><div class="sub">AI Recruiting Platform with RAG and a Human-Approved Agent</div>
-      <p>A recruiting platform where recruiters ask questions about the candidate pool and get answers grounded in cited resume passages, and a LangGraph agent proposes shortlists that are saved only after a human approves them.</p>
-      <ul class="pts"><li>Hybrid retrieval (vector, BM25, RRF, cross-encoder) measured on a 30-question benchmark under a protocol fixed before the run; vector search kept because no addition showed a reliable gain</li><li>Streaming chat over Server-Sent Events with validated citations and a grounded "not found" answer</li><li>argon2id auth, hashed server-side sessions, rate-limited login, and prompt-injection guards each tested against an unguarded twin</li></ul>
-      <div class="hl">MRR@10 0.833 · deterministic scores never changed by the LLM · 639 tests passing</div>
-      <div class="tags"><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">LangGraph</span><span class="tag">Gemini</span><span class="tag">RAGAS</span><span class="tag">SQLAlchemy</span><span class="tag">Docker Compose</span><span class="tag">GitHub Actions</span></div>
+      <div class="ptitle"><h3>HireAI</h3><div class="sub">AI Recruiting Platform with RAG and Human Approval</div></div>
+      <p>A recruiting platform whose answers cite resume passages, and whose agent shortlists are saved only after a human approves them.</p>
+      <ul class="pts"><li><span class="pl">How it works</span>FastAPI with PostgreSQL and pgvector; a LangGraph agent with read-only tools pauses for approval, and answers stream over Server-Sent Events.</li><li><span class="pl">Evaluation</span>Hybrid retrieval (vector, BM25, RRF, cross-encoder) measured on a 30-question benchmark under a protocol fixed before the run; vector search kept.</li><li><span class="pl">Engineering</span>argon2id auth, hashed sessions, rate-limited login, tested prompt-injection guards, Docker Compose and GitHub Actions CI.</li></ul>
+      <div class="hl">MRR@10 0.833 · LLM never changes scores · 639 tests</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Gemini</span><span class="tag">Docker</span></div>
       <div class="plinks"><a class="link" href="https://github.com/MuthuVarshith/Hire-AI/tree/upgrade/final" target="_blank">Source code →</a><a class="link demo" data-video="videos/hire-ai-demo.mp4" href="videos/hire-ai-demo.mp4">▶ Watch demo</a></div>
     </div>
     <div class="card proj reveal">
       <div class="icon">🔍</div>
-      <h3>FusionTrace</h3><div class="sub">Privacy-First Deepfake Detection Service</div>
-      <p>Scores an uploaded image, audio clip or video for synthetic-media risk using local detectors fused into one weighted score, and reports every signal with the model behind it. A risk signal for human review, not a verdict.</p>
-      <ul class="pts"><li>Swappable detector registry: ViT-S for images, Wav2Vec2 for audio, with an attention heatmap and PDF report</li><li>Replaced an image model that failed on outside data after out-of-distribution testing; the new one is not built for face swaps (AUC 0.46), and that is stated</li><li>LoRA fine-tuning, MLflow registry, ONNX export and INT8 quantisation; fine-tune results withheld after a shortcut check found a dataset artifact</li></ul>
-      <div class="hl">Image 98.9% on AI-generated faces · Audio 98.3% held-out, 87% In-the-Wild</div>
-      <div class="tags"><span class="tag">PyTorch</span><span class="tag">timm</span><span class="tag">Hugging Face</span><span class="tag">LoRA</span><span class="tag">MLflow</span><span class="tag">ONNX</span><span class="tag">FastAPI</span><span class="tag">FFmpeg</span><span class="tag">Docker</span></div>
+      <div class="ptitle"><h3>FusionTrace</h3><div class="sub">Privacy-First Deepfake Detection Service</div></div>
+      <p>Scores images, audio and video for synthetic-media risk on local hardware, fusing several detectors into one explained score for human review.</p>
+      <ul class="pts"><li><span class="pl">How it works</span>Swappable detectors (ViT-S for images, Wav2Vec2 for audio) fused into a weighted risk score, with attention heatmaps and PDF reports.</li><li><span class="pl">Evaluation</span>Tested on outside data and replaced an image model that failed it; the new model scores 98.9% on AI-generated faces but is not built for face swaps.</li><li><span class="pl">Engineering</span>LoRA fine-tuning, MLflow registry, ONNX export, INT8 quantisation, a bounded FastAPI job queue and Docker.</li></ul>
+      <div class="hl">Image 98.9% · Audio 98.3% held-out, 87% In-the-Wild · 80 tests</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Hugging Face</span><span class="tag">LoRA</span><span class="tag">MLflow</span><span class="tag">ONNX</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div>
       <div class="plinks"><a class="link" href="https://github.com/MuthuVarshith/FusionTrace" target="_blank">Source code →</a><a class="link demo" data-video="videos/fusiontrace-demo.mp4" href="videos/fusiontrace-demo.mp4">▶ Watch demo</a></div>
     </div>
   </div>
